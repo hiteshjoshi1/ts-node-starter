@@ -1,0 +1,45 @@
+{
+    "name": "ts-node-starter",
+    "version": "1.0.0",
+    "description": "Expres Node Js application boilerplate written in typescript",
+    "main": "index.ts",
+    "scripts": {
+        "build": "tsc",
+        "dev": "nodemon -L",
+        "start": "npm run build && node ./build/index.js",
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "lint:fix": "tslint --fix -p tsconfig.json  -c tslint.json ",
+        "format:base": "prettier --config ./.prettierrc --ignore-path ./.prettierignore  \"**/*.ts\"",
+        "format:check": "npm run format:base -- --list-different",
+        "format:fix": "npm run format:base -- --write",
+        "lint": "tslint -p tsconfig.json -c tslint.json"
+    },
+    "keywords": [
+        "Node",
+        "express",
+        "typescript",
+        "api",
+        "postgres"
+    ],
+    "author": "Hitesh Joshi",
+    "license": "MIT",
+    "dependencies": {
+        "body-parser": "^1.18.3",
+        "express": "^4.16.4",
+        "http-errors": "^1.7.1",
+        "verror": "^1.10.0",
+        "winston": "^3.1.0"
+    },
+    "devDependencies": {
+        "@types/express": "^4.16.1",
+        "@types/http-errors": "^1.6.1",
+        "@types/node": "^10.12.18",
+        "@types/verror": "^1.10.3",
+        "nodemon": "^1.18.9",
+        "prettier": "^1.16.1",
+        "ts-node": "^8.0.1",
+        "tslint": "^5.12.1",
+        "tslint-config-prettier": "^1.17.0",
+        "typescript": "^3.2.4"
+    }
+}
