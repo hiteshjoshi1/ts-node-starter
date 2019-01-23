@@ -1,4 +1,4 @@
-##Boiler plate for typescript based NodeJs API
+## Boiler plate for typescript based NodeJs API
 
 -   Uses tslint and prettier
 
