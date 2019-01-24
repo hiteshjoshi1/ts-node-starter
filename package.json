@@ -5,14 +5,16 @@
     "main": "index.ts",
     "scripts": {
         "build": "tsc",
-        "dev": "nodemon -L",
-        "start": "npm run build && node ./build/index.js",
-        "test": "echo \"Error: no test specified\" && exit 1",
+        "dev": "ts-node ./src/server.ts",
+        "start": "npm run build && nodemon ./build/server.js",
+        "prod": "npm run build && npm run start",
         "lint:fix": "tslint --fix -p tsconfig.json  -c tslint.json ",
         "format:base": "prettier --config ./.prettierrc --ignore-path ./.prettierignore  \"**/*.ts\"",
         "format:check": "npm run format:base -- --list-different",
         "format:fix": "npm run format:base -- --write",
-        "lint": "tslint -p tsconfig.json -c tslint.json"
+        "lint": "tslint -p tsconfig.json -c tslint.json",
+        "test": "jest --coverage --colors",
+        "test:watch": "jest --coverage --colors --watchAll"
     },
     "keywords": [
         "Node",
@@ -33,10 +35,13 @@
     "devDependencies": {
         "@types/express": "^4.16.1",
         "@types/http-errors": "^1.6.1",
+        "@types/jest": "^23.3.13",
         "@types/node": "^10.12.18",
         "@types/verror": "^1.10.3",
+        "jest": "^23.6.0",
         "nodemon": "^1.18.9",
         "prettier": "^1.16.1",
+        "ts-jest": "^23.10.5",
         "ts-node": "^8.0.1",
         "tslint": "^5.12.1",
         "tslint-config-prettier": "^1.17.0",

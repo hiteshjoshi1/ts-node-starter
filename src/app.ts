@@ -36,7 +36,7 @@ class App {
             next(createError(404));
         });
 
-        // error handler
+        // error handler which is a middleware
         this.app.use((err, req: express.Request, res: express.Response, next) => {
             // set locals, only providing error in development
             res.locals.message = err.message;
