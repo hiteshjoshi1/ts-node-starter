@@ -1,65 +1,43 @@
 import app from "./app";
 import http from "http";
-import { logger } from "./logger/Logger";
+import { logger } from "./logger/logger";
 
-const normalizePort = (val: string) => {
-    const aPort = parseInt(val, 10);
-
-    if (isNaN(aPort)) {
-        // named pipe
-        return val;
-    }
-
-    if (aPort >= 0) {
-        // port number
-        return aPort;
-    }
-
-    return false;
+const launchServer = async (server: http.Server, port: number) => {
+    server.listen(port, async (error: any) => {
+        if (error) {
+            logger.debug(error);
+        } else {
+            logger.info(`Server listening on port ${port}`);
+        }
+    });
 };
 
-const onListening = () => {
-    const addr = server.address();
-    const bind = typeof addr === "string" ? "pipe " + addr : "port " + addr.port;
-    logger.info(`Listening on  ${bind}`);
-};
+function getPort(): number {
+    if (process.env.PORT) {
+        logger.info(`Port set to ${process.env.PORT} from PORT env var`);
 
-const onError = (error) => {
-    if (error.syscall !== "listen") {
-        throw error;
+        return parseInt(process.env.PORT, 10);
+    } else {
+        return 4100;
     }
+    // else if (config && config.api && config.api.port) {
 
-    const bind = typeof port === "string" ? "Pipe " + port : "Port " + port;
+    //     logger.info(`Port set to ${config.api.port} from config`)
 
-    // handle specific listen errors with friendly messages
-    switch (error.code) {
-        case "EACCES":
-            console.error(`${bind}  requires elevated privileges`);
-            process.exit(1);
-            break;
-        case "EADDRINUSE":
-            console.error(`${bind}  is already in use`);
-            process.exit(1);
-            break;
-        default:
-            throw error;
-    }
-};
+    //     return config.api.port
+    // }
+    // else {
+    //     throw Errors.make({
+    //         message: 'Failed to parse HTTP port from config or the PORT env var'
+    //     })
+    // }
+}
 
-// Get the port
-const port = normalizePort(process.env.PORT || "4000");
+if (require.main === module) {
+    const port = getPort();
 
-// Set the port where you want ti run the app
-app.set("port", port);
+    const server = http.createServer(app);
+    launchServer(server, port);
+}
 
-/**
- * Create HTTP server.
- */
-
-const server = http.createServer(app);
-
-server.listen(port);
-
-// Server Implements Emitter and catches error and listening events
-server.on("error", onError);
-server.on("listening", onListening);
+export default launchServer;

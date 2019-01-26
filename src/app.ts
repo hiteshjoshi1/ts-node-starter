@@ -2,6 +2,7 @@ import express from "express";
 import bodyParser from "body-parser"; // pull information from HTML POST (express4)
 import createError from "http-errors";
 import { allRoutes } from "./routes";
+import { logger } from "./logger/logger";
 
 class App {
     public app: express.Application;
@@ -39,6 +40,7 @@ class App {
         // error handler which is a middleware
         this.app.use((err, req: express.Request, res: express.Response, next) => {
             // set locals, only providing error in development
+
             res.locals.message = err.message;
             res.locals.error = req.app.get("env") === "development" ? err : "Some error ocurred";
             // Util has a method that can convert an error to String for Json conversion
@@ -48,6 +50,7 @@ class App {
             };
             // render the error page
             res.status(err.status || 500);
+
             // TODO  Sending the Stringified error trace back to  caller, ideally you wont do this in prod
             res.json(errorResponse);
         });

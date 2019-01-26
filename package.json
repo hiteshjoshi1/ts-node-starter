@@ -13,7 +13,7 @@
         "format:check": "npm run format:base -- --list-different",
         "format:fix": "npm run format:base -- --write",
         "lint": "tslint -p tsconfig.json -c tslint.json",
-        "test": "jest --coverage --colors",
+        "test": "jest --coverage --colors --forceExit --detectOpenHandles --runInBand --verbose false",
         "test:watch": "jest --coverage --colors --watchAll"
     },
     "keywords": [
@@ -26,6 +26,7 @@
     "author": "Hitesh Joshi",
     "license": "MIT",
     "dependencies": {
+        "axios": "^0.18.0",
         "body-parser": "^1.18.3",
         "express": "^4.16.4",
         "http-errors": "^1.7.1",
