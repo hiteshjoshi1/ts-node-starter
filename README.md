@@ -5,3 +5,12 @@
 -   Uses Winston for logging
 
 -   Uses verror and http-error
+
+-   Uses Jest for Testing
+
+#Typescript
+#Nodejs
+#API
+#JEST
+#ESLINT
+#Prettier
