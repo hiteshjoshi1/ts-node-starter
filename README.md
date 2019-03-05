@@ -6,6 +6,18 @@
 
 -   Uses verror and http-error
 
+#Typescript
+#Nodejs
+#API
+#JEST
+#ESLINT
+#Prettier
+
+#DOCKER
+#Kubernetes
+#Skaffold
+#Hot Reload with K8
+
 ## Build the Image (DOCKER)
 
 ```
