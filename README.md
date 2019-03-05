@@ -32,6 +32,11 @@ docker run -d -p 4100:4100 ts-node:latest
 
 # Run the Image Kubernetes
 
+If you have Kubernetes and minikube installed, just install Skaffold and do
+skaffold dev
+If you face issues, create a Skaffold alias and do
+skaffold_dev
+
     Instructions for Mac - now that I work on Mac , hell with other OS. But seriously , windows should be similar.
 
 ### Install Minikube on Mac
@@ -55,7 +60,7 @@ docker run -d -p 4100:4100 ts-node:latest
 
     minikube status  <== to check the status of the minikube
 
-    ### Create an alias to work around an issue with skaffold for now - 2019-02-27
+## Create an alias to work around an issue with skaffold for now - 2019-02-27
 
     Create alias *skaffold_dev* by adding following in ur ~./bash_profile
 
