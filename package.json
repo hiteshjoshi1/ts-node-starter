@@ -5,9 +5,12 @@
     "main": "index.ts",
     "scripts": {
         "build": "tsc",
+        "postinstall": "tsc",
+        "watch": "tsc -w",
+        "debug": "nodemon --watch ./build --inspect=0.0.0.0:5858 --nolazy ./build/server.js",
         "dev": "ts-node ./src/server.ts",
-        "start": "npm run build && nodemon ./build/server.js",
-        "prod": "npm run build && npm run start",
+        "start": "npm run build && node ./build/server.js",
+        "prod": "npm run build && node build/server.js",
         "lint:fix": "tslint --fix -p tsconfig.json  -c tslint.json ",
         "format:base": "prettier --config ./.prettierrc --ignore-path ./.prettierignore  \"**/*.ts\"",
         "format:check": "npm run format:base -- --list-different",
@@ -30,6 +33,7 @@
         "body-parser": "^1.18.3",
         "express": "^4.16.4",
         "http-errors": "^1.7.1",
+        "swagger-ui-express": "^4.0.2",
         "verror": "^1.10.0",
         "winston": "^3.1.0"
     },

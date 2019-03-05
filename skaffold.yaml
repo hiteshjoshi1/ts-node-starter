@@ -1,0 +1,13 @@
+apiVersion: skaffold/v1beta5
+kind: Config
+build:
+    artifacts:
+        - image: ts-node
+# test:
+#     - image: ts-node
+# structureTests:
+#     - ./tests/*
+deploy:
+    kubectl:
+        manifests:
+            - "k8s/**"
