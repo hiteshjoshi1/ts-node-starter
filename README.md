@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/hiteshjoshi1/ts-node-starter.svg?branch=master)](https://travis-ci.org/hiteshjoshi1/ts-node-starter)
+
 ## Boiler plate for typescript based NodeJs API
 
 -   Uses tslint and prettier
