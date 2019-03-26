@@ -1,6 +1,6 @@
 [![Build Status](https://travis-ci.org/hiteshjoshi1/ts-node-starter.svg?branch=master)](https://travis-ci.org/hiteshjoshi1/ts-node-starter)
 
-## Boiler plate for typescript based NodeJs API
+# Boiler plate for typescript based NodeJs API
 
 -   Uses tslint and prettier
 
@@ -82,23 +82,24 @@ curl -LO https://storage.googleapis.com/container-structure-test/latest/containe
  cd ts-node-starter
 
 ### Starting Minikube - <== Bring up the minikube if it is NOT running
- ```
- minikube start --vm-driver=hyperkit  
+
+```
+minikube start --vm-driver=hyperkit  
 ```
 
 Check Minikube status
 
 ```
- minikube status  <== to check the status of the minikube
+minikube status  <== to check the status of the minikube
 ```
 
 ## Create an alias to work around an issue with skaffold for now - 2019-02-27
 
 Create alias *skaffold_dev* by adding following in ur ~./bash_profile
 
-    ```
-    alias skaffold_dev='(eval $(minikube docker-env); skaffold dev --default-repo localhost:5000 )'
-    ```
+ ```
+ alias skaffold_dev='(eval $(minikube docker-env); skaffold dev --default-repo localhost:5000 )'
+ ```
 
 Run application using Skaffold , use
    skaffold dev
