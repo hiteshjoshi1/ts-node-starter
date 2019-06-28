@@ -7,4 +7,4 @@ spec:
         - name: ts-node
           image: ts-node
           ports:
-              - containerPort: 4100
+              - containerPort: 3000
