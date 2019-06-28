@@ -1,11 +1,14 @@
 import express from "express";
 import bodyParser from "body-parser"; // pull information from HTML POST (express4)
 import createError from "http-errors";
-import { allRoutes } from "./routes";
+// import { allRoutes } from "./routes";
+import { RegisterRoutes } from "./routes";
 import { logger } from "./logger/logger";
+import "./controllers/UserController";
+import * as swaggerUi from "swagger-ui-express";
 
 class App {
-    public app: express.Application;
+    public app: express.Express;
 
     constructor() {
         this.app = express();
@@ -30,10 +33,22 @@ class App {
         // this.app.use(express.static(path.join(__dirname, "client/build")));
 
         // Route order is IMPORTANT
-        this.app.use(allRoutes);
+        // this.app.use(allRoutes);
+
+        RegisterRoutes(this.app);
+
+        try {
+            const swaggerDocument = require("../swagger.json");
+            this.app.use("/docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+        } catch (err) {
+            logger.log("Unable to load swagger.json", err);
+        }
 
         // catch 404 and forward to error handler
         this.app.use((req, res, next) => {
+            console.log(req);
+            console.log("----");
+            console.log(res);
             next(createError(404));
         });
 

@@ -1,12 +1,18 @@
-import { Request, Response } from "express";
+// import { Request, Response } from "express";
 
-// Ideally you would inject a service in this controller which will do the business logic
-export class UserController {
-    public test(req: Request, res: Response) {
-        res.status(200).send({
-            message: "User request successful!!",
-        });
+import { Route, Response, Get, Post, Patch, Header, Body, Security, Controller, Path } from "tsoa";
+import { logger } from "../logger/logger";
+
+@Route("/users")
+export class UserController extends Controller {
+    @Get("/")
+    public async getAll() {
+        logger.info("Testing");
+        return { Hitesh: "fddfdsfds" };
+    }
+
+    @Get("/test")
+    public async stupidTest() {
+        return { Joshi: "Vendetta" };
     }
 }
-
-export const userController = new UserController();

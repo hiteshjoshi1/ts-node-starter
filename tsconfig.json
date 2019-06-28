@@ -1,5 +1,6 @@
 {
     "compilerOptions": {
+        "experimentalDecorators": true,
         "declaration": false,
         "module": "commonjs",
         "target": "es2017",
