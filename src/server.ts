@@ -18,7 +18,7 @@ function getPort(): number {
 
         return parseInt(process.env.PORT, 10);
     } else {
-        return 3000;
+        return 4100;
     }
     // else if (config && config.api && config.api.port) {
 

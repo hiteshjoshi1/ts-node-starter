@@ -7,5 +7,5 @@ WORKDIR /server
 COPY . /server
 RUN npm install
 
-EXPOSE 3000
+EXPOSE 4100
 CMD [ "npm", "start" ]
