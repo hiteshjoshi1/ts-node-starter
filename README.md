@@ -58,7 +58,7 @@ docker run -d -p 4100:4100 ts-node:latest
 ## The image is now pushed to DockerHub and can be run as
 
 ```
-docker run hiteshjoshi1/ts-node:latest
+docker run -d -p 4100:4100 hiteshjoshi1/ts-node:latest
 ```
 
 # Build and run continously with Kubernetes, minikube, and skaffold
