@@ -71,10 +71,6 @@ If you have Kubernetes and minikube installed, just install Skaffold and do
 skaffold dev
 ```
 
-If you face issues, create a Skaffold alias and do
-skaffold_dev
-
-    Instructions for Mac - now that I work on Mac , hell with other OS. But seriously , windows should be similar.
 
 ### Install Minikube on Mac
 
@@ -108,7 +104,7 @@ cd ts-node-starter
 ### Starting Minikube - <== Bring up the minikube if it is NOT running
 
 ```
-minikube start --vm-driver=hyperkit
+minikube start 
 ```
 
 Check Minikube status
@@ -117,18 +113,13 @@ Check Minikube status
 minikube status  <== to check the status of the minikube
 ```
 
-## Create an alias to work around an issue with skaffold for now - 2019-02-27
-
-Create alias _skaffold_dev_ by adding following in ur ~./bash_profile
-
-```
-alias skaffold_dev='(eval $(minikube docker-env); skaffold dev --default-repo localhost:5000 )'
-```
-
-Run application using Skaffold , use
-skaffold dev
-OR
-skaffold_dev (alias created above)
 
 Skaffold is an awesome tool from Google -
 https://github.com/GoogleContainerTools/skaffold
+
+The minikube cluster will run three pods and a loadbalancer service.
+
+Get the LoadBalancer url as
+```
+minikube service ts-node-service --url
+```
