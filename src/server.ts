@@ -3,6 +3,7 @@ import http from "http";
 import { logger } from "./logger/logger";
 
 const launchServer = async (server: http.Server, port: number) => {
+    logger.info("PORT RAN ON ----" + port);
     server.listen(port, async (error: any) => {
         if (error) {
             logger.debug(error);

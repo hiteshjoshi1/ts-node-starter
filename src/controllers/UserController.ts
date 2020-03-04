@@ -5,11 +5,6 @@ import { logger } from "../logger/logger";
 
 @Route("/users")
 export class UserController extends Controller {
-    @Get("/")
-    public async getAll() {
-        logger.info("Testing");
-        return { Hitesh: "fddfdsfds" };
-    }
 
     @Get("/test")
     public async stupidTest() {

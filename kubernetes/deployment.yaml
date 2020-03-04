@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+    name: ts-node-deployment
+spec:
+    replicas: 3
+    selector:
+        matchLabels:
+            app: ts-node
+    template:
+        metadata:
+            labels:
+                app: ts-node
+        spec:
+            containers:
+                - name: ts-node
+                  image: ts-node
+                  ports:
+                      - name: nodejs-port
+                        containerPort: 4100

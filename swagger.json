@@ -13,9 +13,9 @@
 		}
 	},
 	"paths": {
-		"/users": {
+		"/users/test": {
 			"get": {
-				"operationId": "GetAll",
+				"operationId": "StupidTest",
 				"produces": [
 					"application/json"
 				],
@@ -31,9 +31,9 @@
 				"parameters": []
 			}
 		},
-		"/users/test": {
+		"/": {
 			"get": {
-				"operationId": "StupidTest",
+				"operationId": "GetAll",
 				"produces": [
 					"application/json"
 				],

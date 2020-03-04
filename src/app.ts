@@ -4,7 +4,9 @@ import createError from "http-errors";
 // import { allRoutes } from "./routes";
 import { RegisterRoutes } from "./routes";
 import { logger } from "./logger/logger";
+import "./controllers/FirstController";
 import "./controllers/UserController";
+
 import * as swaggerUi from "swagger-ui-express";
 
 class App {
@@ -46,9 +48,7 @@ class App {
 
         // catch 404 and forward to error handler
         this.app.use((req, res, next) => {
-            console.log(req);
-            console.log("----");
-            console.log(res);
+
             next(createError(404));
         });
 

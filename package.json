@@ -4,7 +4,7 @@
     "description": "Expres Node Js application boilerplate written in typescript",
     "main": "index.ts",
     "scripts": {
-        "start": "npm run serve",
+        "start": "npm run build && npm run serve",
         "build": "npm run route:gen && npm run build-ts && npm run tslint",
         "serve": "node build/server.js",
         "watch-node": "nodemon build/server.js",
@@ -35,7 +35,9 @@
         "swagger-ui-express": "^4.0.6",
         "tsoa": "^2.4.3",
         "verror": "^1.10.0",
-        "winston": "^3.1.0"
+        "winston": "^3.1.0",
+        "set-value": ">=2.0.1",
+        "mem": ">=4.0.0"
     },
     "devDependencies": {
         "@types/express": "^4.16.1",

@@ -1,6 +1,7 @@
 /* tslint:disable */
 import { Controller, ValidationService, FieldErrors, ValidateError, TsoaRoute } from 'tsoa';
 import { UserController } from './controllers/UserController';
+import { FirstController } from './controllers/FirstController';
 import * as express from 'express';
 
 const models: TsoaRoute.Models = {
@@ -8,24 +9,6 @@ const models: TsoaRoute.Models = {
 const validationService = new ValidationService(models);
 
 export function RegisterRoutes(app: express.Express) {
-    app.get('/users',
-        function(request: any, response: any, next: any) {
-            const args = {
-            };
-
-            let validatedArgs: any[] = [];
-            try {
-                validatedArgs = getValidatedArgs(args, request);
-            } catch (err) {
-                return next(err);
-            }
-
-            const controller = new UserController();
-
-
-            const promise = controller.getAll.apply(controller, validatedArgs as any);
-            promiseHandler(controller, promise, response, next);
-        });
     app.get('/users/test',
         function(request: any, response: any, next: any) {
             const args = {
@@ -42,6 +25,24 @@ export function RegisterRoutes(app: express.Express) {
 
 
             const promise = controller.stupidTest.apply(controller, validatedArgs as any);
+            promiseHandler(controller, promise, response, next);
+        });
+    app.get('/',
+        function(request: any, response: any, next: any) {
+            const args = {
+            };
+
+            let validatedArgs: any[] = [];
+            try {
+                validatedArgs = getValidatedArgs(args, request);
+            } catch (err) {
+                return next(err);
+            }
+
+            const controller = new FirstController();
+
+
+            const promise = controller.getAll.apply(controller, validatedArgs as any);
             promiseHandler(controller, promise, response, next);
         });
 
